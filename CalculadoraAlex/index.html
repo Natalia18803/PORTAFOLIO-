@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <div>
+        
+
+
+
+
+  <form onsubmit="calcular(event)">
+    <label><input type="radio" name="operacion" value="suma">Suma</label>
+    <br>
+    <label><input type="radio" name="operacion" value="resta">Resta</label>
+     <br>
+    <label><input type="radio" name="operacion" value="multiplicacion">Multiplicacion</label>
+     <br>
+    <label><input type="radio" name="operacion" value="division" >Division</label>
+  </form>
+
+
+
+        <h1 id="res"></h1>
+        <input type="text" id="n1">
+        <input type="text" id="n2">
+        <button onclick="operacion()">Resultado</button>
+         
+
+
+      
+
+        <script>
+       function opcion() {
+        let r = document.getElementById("res")
+        let num1 = document.getElementById("n1")
+        let num2 = document.getElementById("n2")
+        r.textContent = parseInt(num1.value) + parseInt(num2.value)
+        switch(opcion){
+            case "suma":
+                suma();
+                break;
+            case "resta":
+                resta();
+                break;
+            case "multiplicacion":
+                multiplicacion();
+                break;
+            case "division":
+                division();
+                break;
+            default:
+                alert("Seleccione una operación válida");
+                break; // No operation selected
+          case "suma"
+        }
+      }
+
+
+
+
+
+
+
+
+      function suma() {
+        let r = document.getElementById("sum")
+        let num1 = document.getElementById("n1")
+        let num2 = document.getElementById("n2")
+        sum.textContent = parseInt(num1.value) + parseInt(num2.value)
+      }
+      
+
+      function resta() {
+        let r = document.getElementById("sum")
+        let num1 = document.getElementById("n1")
+        let num2 = document.getElementById("n2")
+        sum.textContent = parseInt(num1.value) - parseInt(num2.value)
+      }
+      function multiplicacion() {
+        let r = document.getElementById("sum")
+        let num1 = document.getElementById("n1")
+        let num2 = document.getElementById("n2")
+        sum.textContent = parseInt(num1.value) * parseInt(num2.value)
+      }
+
+      function division() {
+        let r = document.getElementById("sum")
+        let num1 = document.getElementById("n1")
+        let num2 = document.getElementById("n2")
+        sum.textContent = parseInt(num1.value) / parseInt(num2.value)
+      }
+
+
+        </script>
+
+
+
+
+    </div>
+
+</body>
+
+</html>
