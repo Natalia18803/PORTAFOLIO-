@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding:0;
+}
+
+
+body {
+    background-color: #e8e5fd;
+    font-family: Arial, sans-serif;
+    margin-top: 5%;
+    margin-left: 14%;
+    margin-right: 14%;
+}
+
+
+.contenedorSuperior {
+    background-color: #fffceb;
+    color: rgb(70, 46, 1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contenedorHijo {
+    background-color: #f7f1cf;
+    color: rgb(70, 46, 1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 4%;
+}
+
+
+
+.paginas  {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+
+.pagina1, .pagina2, .pagina3, .pagina4 {
+    width: 90%;
+    margin:  20px;
+    padding: 20px;
+    background-color: #fffade;
+    color: rgb(70, 46, 1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+.pagina1 h2, .pagina2 h2, .pagina3 h2 {
+    text-align: center;
+    margin-bottom: px;
+}
+
+
+
+
+/**BOTONES**/
+
+#botton1, #botton2, #botton3, #botton4 {
+    background-color: #fffceb;
+    color: rgb(139, 98, 20);
+    border: 1px solid rgb(65, 27, 1);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    
+}

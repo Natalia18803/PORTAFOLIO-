@@ -1,8 +1,33 @@
   
+  
+  
+  
+  
+  
   body{
-    background-color: rgb(134, 111, 156);
+    background-color: rgb(231, 137, 150);
     color:bisque;
     padding: 200px;
 
   }
 
+
+
+  .contenedor {
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(202, 59, 59, 0.8);
+    border-radius: 10px;
+  }
+
+
+
+
+  @media (max-width: 630px) {
+   justify-content: center;
+   margin-left: ;
+ 
+    }
+  }

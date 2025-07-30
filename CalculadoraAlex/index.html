@@ -1,111 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
+  <div class="contenedor">
     <h1>Calculadora</h1>
-    <div>
-        
-
-
 
 
   <form onsubmit="calcular(event)">
-    <label><input type="radio" name="operacion" value="suma">Suma</label>
-    <br>
-    <label><input type="radio" name="operacion" value="resta">Resta</label>
-     <br>
-    <label><input type="radio" name="operacion" value="multiplicacion">Multiplicacion</label>
-     <br>
-    <label><input type="radio" name="operacion" value="division" >Division</label>
+    <label><input type="radio" name="operacion" value="suma">Suma</label><br>
+    <label><input type="radio" name="operacion" value="resta">Resta</label><br>
+    <label><input type="radio" name="operacion" value="multiplicacion">Multiplicación</label><br>
+    <label><input type="radio" name="operacion" value="division">División</label><br>
+
+    <input type="text" id="n1" placeholder="Número 1">
+    <input type="text" id="n2" placeholder="Número 2">
+    <button type="submit">Resultado</button>
   </form>
 
+  <h2 id="res"></h2>
 
+  <script>
+    function calcular(event) {
+      event.preventDefault();
 
-        <h1 id="res"></h1>
-        <input type="text" id="n1">
-        <input type="text" id="n2">
-        <button onclick="operacion()">Resultado</button>
-         
+      const num1 = parseFloat(document.getElementById("n1").value);
+      const num2 = parseFloat(document.getElementById("n2").value);
+      const operacion = document.querySelector('input[name="operacion"]:checked');
+      const resultado = document.getElementById("res");
 
-
-      
-
-        <script>
-       function opcion() {
-        let r = document.getElementById("res")
-        let num1 = document.getElementById("n1")
-        let num2 = document.getElementById("n2")
-        r.textContent = parseInt(num1.value) + parseInt(num2.value)
-        switch(opcion){
-            case "suma":
-                suma();
-                break;
-            case "resta":
-                resta();
-                break;
-            case "multiplicacion":
-                multiplicacion();
-                break;
-            case "division":
-                division();
-                break;
-            default:
-                alert("Seleccione una operación válida");
-                break; // No operation selected
-          case "suma"
-        }
+      if (!operacion) {
+        alert("Selecciona una operación");
+        return;
       }
 
-
-
-
-
-
-
-
-      function suma() {
-        let r = document.getElementById("sum")
-        let num1 = document.getElementById("n1")
-        let num2 = document.getElementById("n2")
-        sum.textContent = parseInt(num1.value) + parseInt(num2.value)
+      switch (operacion.value) {
+        case "suma":
+          resultado.textContent = `Resultado: ${num1 + num2}`;
+          break;
+        case "resta":
+          resultado.textContent = `Resultado: ${num1 - num2}`;
+          break;
+        case "multiplicacion":
+          resultado.textContent = `Resultado: ${num1 * num2}`;
+          break;
+        case "division":
+          if (num2 === 0) {
+            resultado.textContent = "Error: No se puede dividir por cero";
+          } else {
+            resultado.textContent = `Resultado: ${num1 / num2}`;
+          }
+          break;
+        default:
+          resultado.textContent = "Operación no reconocida";
       }
-      
+    }
 
-      function resta() {
-        let r = document.getElementById("sum")
-        let num1 = document.getElementById("n1")
-        let num2 = document.getElementById("n2")
-        sum.textContent = parseInt(num1.value) - parseInt(num2.value)
-      }
-      function multiplicacion() {
-        let r = document.getElementById("sum")
-        let num1 = document.getElementById("n1")
-        let num2 = document.getElementById("n2")
-        sum.textContent = parseInt(num1.value) * parseInt(num2.value)
-      }
-
-      function division() {
-        let r = document.getElementById("sum")
-        let num1 = document.getElementById("n1")
-        let num2 = document.getElementById("n2")
-        sum.textContent = parseInt(num1.value) / parseInt(num2.value)
-      }
-
-
-        </script>
-
-
-
-
-    </div>
-
+  </script>
+      </div>
 </body>
-
 </html>
