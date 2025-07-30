@@ -4,51 +4,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTAFOLIO</title>
-    <link href="style.css" rel="stylesheet">
-
+    <title>Electrodomesticos</title>
+    <link href="estilos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-
-    <div class="contenedorSuperior">
-        <h1>NATALIA HERNÁNDEZ</h1>
-        <p>Bienvenido a mi portafolio </p>
-    </div>
-
-    <div class="contenedorHijo">
-        <h2>Paginas proyecto 🫂 </h2>
-
-        <div class="paginas">
-            <div class="pagina1">
-                <h3>Pagina de Quien Soy</h3>
-                <p>Descripción de la página 1.</p>
-                <br>
-                <a href="./quienSoy/codigo.html"><button id="botton2">Ir a la pagina </button></a>
-            </div>
-            <div class="pagina2">
-                <h3>Hoja de vida</h3>
-                <p>Descripción de la página 2.</p>
-                <br>
-                <a href="./hoja/Aindiex.html"><button id="botton2">Ir a la pagina </button></a>
-            </div>
-            <div class="pagina3">
-                <h3>Electrodomesticos</h3>
-                <p>Descripción de la página 3.</p>
-                <br>
-<a href="./Electrodomesticos/index.html"><button id="botton4">Ir a la pagina </button></a>
-            </div>
-            <div class="pagina4">
-                <h3>Calculadora</h3>
-                <p>Descripción de la página 4.</p>
-                <br>
-                <a href="./CalculadoraAlex/index.html"><button id="botton4">Ir a la pagina </button></a>
+    
+    <!-- Cabezal Negro -->
+    <header class="cabeza-negra">
+        <div class="contenedor-cabezal">
+            <!-- Logo y nombre -->
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo Elecstore" class="logo">
+                <div class="texto-logo">
+                    <h1 class="nombre-empresa">Elec<span class="store">store</span></h1>
+                    <p class="eslogan">Online store</p>
+                </div>
             </div>
 
+            <!-- Información de contacto -->
+            <div class="info-contacto">
+                <div class="contacto-item">
+                    <p class="contacto-titulo">NOT LINE</p>
+                    <p class="contacto-dato">0212386539</p>
+                </div>
+                <div class="contacto-item">
+                    <p class="contacto-titulo">FREE SHOPPING</p>
+                    <p class="contacto-dato">0223496339</p>
+                </div>
+            </div>
+
+            <!-- Carrito de compras -->
+            <div class="carrito-container">
+                <div class="carrito-icono">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="contador-carrito">0</span>
+                </div>
+                <div class="carrito-info">
+                    <p class="carrito-titulo">SHOPPING CART</p>
+                    <p class="carrito-total">$50.00</p>
+                </div>
+            </div>
+
+            <!-- Menú hamburguesa (solo móvil) -->
+            <button class="menu-hamburguesa">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Resto de HTML -->
+    <div class="contenedor-principal">
+        <!-- Barra superior negra -->
+        <!-- Barra roja de navegación -->
+        <header class="header">
+            <div class="contenedor-header">
+                <div class="casita-container">
+                    <img class="casita" src="casita..png" alt="Inicio">
+                </div>
+                
+                <nav class="barraDeTareas">
+                    <ul>
+                        <id> REFRIGERATOR</id>
+                        <id> MICROWAVE</id>
+                        <id> BLENDER</id>
+                        <id> JEWELRY</id>
+                        <id> ACCESSORIES</id>
+                        <id> COSTOM MENU</id>
+                    </ul>
+                 </nav>
+            </div>
+        </header>
+
+
+        <!-- Mi conenido imagenes portada -->
+        <div class="contenido">
+
+            <div class="galeria-wrapper">
+
+                <div class="galeria">
+
+                <div class="imagenes" id="varias">
+                    <img class="principa1" src="./Portada.png" alt="Portada  1">
+                    <img class="principa2" src="./Portada.png" alt="Portada  2">
+                    <img class="principa3" src="./Portada.png" alt="Portada  3">
+                    </div>
+
+                </div>           
+                <button class = "boton izquierda" onclick="moverIzquirda()"><</button>
+                <button class = "boton derecha" onclick="moverDerecha()">></button>
+
+            </div>
+          
+
+            <!-- Las categorias-->  
+            <br>
+
+               <section class="categoria">
+                <h2 class="titulo-category">-----CATEGORY-----</h2>
+                    <div class="contenedor-categorias">
+                        <div class="item-categoria">
+                            <img src="./Refrigerador.png" alt="Refrigerator">
+                            <h3>REFRIGERATOR</h3>
+                            <p>Lorem ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
+                        </div>
+                        <div class="item-categoria">
+                            <img src="./Microhondas.png" alt="Microwave">
+                            <h3>MICROWAVE</h3>
+                            <p>Lorem ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
+                        </div>
+                        <div class="item-categoria">
+                            <img src="./Licuadora.png" alt="Blender">
+                            <h3>BLENDER</h3>
+                           <p>Lorem ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
+                        </div>
+                        <div class="item-categoria">
+                             <img src="./Polvo.png" alt="Vacuum">
+                             <h3>REFRIGERATOR</h3>
+                             <p>Lorem ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Nuevo contenido-->
+                <div class="promociones">
+                        <div class="item-imgProm">
+                            <img src="./NuevoUno.png" alt="Refrigerator">
+                        </div>
+                        <div class="item-imgProm">
+                            <img src="./NuevoDos.png" alt="Microwave">
+                        </div>
+               </div>        
+                <button class = "boton izquierda" onclick="moverIzquirda()"><</button>
+      
+                <h2 class="titulo-category">-----NEW PRODUCT-----</h2>
+          <button class = "boton derecha" onclick="moverDerecha()">></button>
+
+
+            
         </div>
 
+       
+
+
+
+
 
     </div>
-</body>
+    <div class="whiteRectangle ">
 
+     <!-- Pie de pagina-->  
+        <footer class="footer">           
+                
+            <div class="footer-data">
+                <h3>INFORMACION </h3>
+                    <ul>
+                        <li>About us</li>
+                        <li>Delivery Information</li>
+                        <li>Privacy Policy</li>
+                        <li>Discount</li>
+                        <li>Custom Service</li>
+                        <li>Terms & Condition</li>
+                    </ul>   
+            </div>
+            <div class="footer-data">
+                <h3>OUR SUPPORT</h3>
+                    <ul>
+                        <li>Delivery Information</li>
+                        <li>Privacy Policy</li>
+                        <li>Your Account</li>
+                        <li>Delivery</li>
+                        <li>Terms & Condition</li>
+                        <li>Contact Us</li>
+                    </ul>
+            </div>
+            <div class="footer-data">
+            <h3>OUR SERVICE</h3>
+                <ul>
+                    <li>My Account</li>
+                    <li>Order History</li>
+                    <li>Returns</li>
+                    <li>Specials</li>
+                    <li>Mobiles</li>
+                    <li>Site Map</li>
+                </ul>
+            </div>
+            <div class="footer-data">
+                <h3>ABOUT US</h3>
+                <ul>
+                <li>📞 +123 456 7890</li>
+                <li>✉️ info@yourdomain.com</li>
+                <li>📍 32 Senff - NY</li>
+                </ul>
+            </div>
+
+
+        </footer>
+        <div class="pago">
+            <p>Copyright © 2012 Temas de Magento de Plaza Themes. Todos los derechos reservados.</p>
+        
+        </div>
+
+    </div>
+
+
+      
+       
+</body>
 </html>
+
