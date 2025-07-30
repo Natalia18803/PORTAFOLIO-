@@ -5,7 +5,10 @@
 
 
 body {
-    background-color: #e8e5fd;
+    background-image: url("./FondoPortafolio.avif");
+    background-size: cover;
+ 
+    background-position: center center;
     font-family: Arial, sans-serif;
     margin-top: 5%;
     margin-left: 14%;
@@ -70,4 +73,42 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     
     
+}
+
+
+
+
+/* Para tablets y pantallas medianas */
+@media (max-width: 900px) {
+    body {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .paginas {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+}
+
+/* Para tablets y pantallas medianas */
+@media (max-width: 900px) {
+    body {
+        margin-left: 22%;
+        margin-right: 22%;
+        margin-top: 28%;
+        gap: 20px;
+    }
+    .contenedorSuperior, .contenedorHijo {
+        padding: 15px;
+    }
+    .paginas {
+        grid-template-columns: 1fr;
+        padding: 42px;
+        gap: 20px;
+    }
+    .pagina1, .pagina2, .pagina3, .pagina4 {
+        width: 100%;
+        margin: 0 0 20px 0;
+        padding: 15px;
+    }
 }

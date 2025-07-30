@@ -14,20 +14,12 @@
 
 
   .contenedor {
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
     width: 200px;
-    padding: 10px;
+    padding: 40px;
     background-color: rgba(202, 59, 59, 0.8);
     border-radius: 10px;
   }
 
 
-
-
-  @media (max-width: 630px) {
-   justify-content: center;
-   margin-left: ;
- 
-    }
-  }
