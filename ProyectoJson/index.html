@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugares</title>
+    <link href="estilos.css" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class="contenedor1">
+            <p class="nombre"><b>Natalia</b> Hernandez</p>
+            <div class="contenedor2">
+                <p class="inicio">Inicio</p>
+                <p class="preguntas">Menú</p>
+                <p class="proyecto">Proyectos</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="fondo"></div>
+    <div id="cards"></div>
+    <script>
+        fetch('lugares.json')
+            .then(res => res.json())
+            .then(lugares => {
+                const container = document.getElementById('cards');
+                lugares.forEach(lugar => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.style.borderColor = lugar.categoria.colorPrimario;
+
+                    card.innerHTML = `
+                        <img class="card-img" src="${lugar.url_imagen}" alt="${lugar.nombre}">
+                        <div class="card-title"><strong>${lugar.nombre}</strong></div>
+                        <div class="card-pais">${lugar.pais}</div>
+                        <div class="card-cuidad">${lugar.ciudad}</div>
+                    `;
+
+                    const img = card.querySelector('.card-img');
+                    img.onclick = () => {
+                        localStorage.setItem("lugarSeleccionado", JSON.stringify(lugar));
+                        window.open("otro.html", "_blank");
+                    };
+
+                    card.onclick = () => {
+                        localStorage.setItem("lugarSeleccionado", JSON.stringify(lugar));
+                        window.open("otro.html", "_blank");
+                    };
+                    container.appendChild(card);
+                });
+            });
+
+
+    </script>
+</body>
+</html>

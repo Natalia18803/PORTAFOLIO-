@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        #otro {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="otro" class="card-otro"></div>
+    <script>
+        const lugar = JSON.parse(localStorage.getItem('lugarSeleccionado'));
+        if (lugar) {
+            document.getElementById('otro').innerHTML = `
+                <h2>${lugar.nombre}</h2>
+                <img src="${lugar.url_imagen}" alt="${lugar.nombre}" style="max-width:200px">
+                <p><strong>Ciudad:</strong> ${lugar.ciudad}</p>
+                <p><strong>pais:</strong> ${lugar.pais}</p>
+                <p><strong>Descripción:</strong> ${lugar.descripcion || 'Sin descripción.'}</p>
+                <p><strong>Categoría:</strong> ${lugar.categoria.nombre}</p>
+                <p><strong>Actividades Recomendadas:</strong> ${lugar.actividadesRecomendadas}</p>
+                <p><strong>coodenadas:</strong> Latitud: ${lugar.coordenadas.latitud}, Longitud: ${lugar.coordenadas.longitud}</p>
+            `;
+            document.querySelector('.card-otro').style.background =
+                `linear-gradient(135deg, ${ lugar.categoria.colorPrimario }, ${ lugar.categoria.colorSecundario })`;
+            document.querySelector('.card-otro').style.border =
+                `2px solid ${ lugar.categoria.colorPrimario }`;
+        } else {
+            document.getElementById('otro').innerHTML = '<p>No hay información disponible.</p>';
+        }
+    </script>
+</body>
+
+</html>
