@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("./FondoPortafolio.avif") center/cover no-repeat;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #3a2c1a;
+  margin: 5% clamp(5%, 12%, 14%);
+  line-height: 1.7;
+}
+
+/* Contenedores principales */
+.contenedorSuperior,
+.contenedorHijo {
+  background-color: #faf8f0;
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 32px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+  border: 1px solid #e0d6c3;
+  transition: box-shadow 0.3s ease;
+}
+
+.contenedorHijo {
+  background-color: #f5ecd8;
+}
+
+/* Sección de páginas */
+.paginas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+}
+
+.pagina1, .pagina2, .pagina3, .pagina4, .pagina5, .pagina6 {
+  background-color: #fffdf6;
+  border-radius: 14px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid #d4a373;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pagina1:hover, .pagina2:hover, .pagina3:hover, .pagina4:hover, .pagina5:hover, .pagina6:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.paginas h2 {
+  text-align: center;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: #5c3d1a;
+  margin-bottom: 1rem;
+}
+
+/* Botones */
+#botton1, #botton2, #botton3, #botton4, #botton5, #botton6 {
+  background-color: #f5ecd8;
+  color: #7a4e1d;
+  border: 1px solid #b88b4a;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#botton1:hover, #botton2:hover, #botton3:hover, #botton4:hover, #botton5:hover, #botton6:hover {
+  background-color: #e6d2b3;
+  transform: scale(1.05);
+}
+
+/* Responsive ajustes */
+@media (max-width: 600px) {
+  body {
+    margin: 8% 5%;
+  }
+
+  .contenedorSuperior,
+  .contenedorHijo {
+    padding: 1.2rem;
+  }
+
+  .paginas {
+    padding: 1rem;
+    gap: 2rem;
+  }
+}
