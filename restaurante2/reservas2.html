@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery y Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurante</title>
@@ -144,6 +151,19 @@
     </style>
 </head>
 <body >
+
+    <!-- Modal simple -->
+<div class="modal fade" id="modalCampos" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <p>Complete todos los campos obligatorios.</p>
+        <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
    
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -323,20 +343,21 @@
                             <select class="form-select" id="reservaMesa" required>
                                 <option value="">Seleccione una mesa</option>
                                 <!-- Las opciones de mesas disponibles se cargarán dinámicamente -->
+                                 
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="reservaOcasion" class="form-label">Ocasión Especial</label>
                             <select class="form-select" id="reservaOcasion" onchange="actualizarVistaPreviaOcasion()">
                                 <option value="Ninguna">Ninguna</option>
-                                <option value="Cumpleaños" data-imagen="https://picsum.photos/id/1005/150/150">Cumpleaños</option>
-                                <option value="Aniversario" data-imagen="https://picsum.photos/id/106/150/150">Aniversario</option>
-                                <option value="Reunión de Negocios" data-imagen="https://picsum.photos/id/1060/150/150">Reunión de Negocios</option>
-                                <option value="Cena Romántica" data-imagen="https://picsum.photos/id/96/150/150">Cena Romántica</option>
-                                <option value="Celebración Familiar" data-imagen="https://picsum.photos/id/1062/150/150">Celebración Familiar</option>
+                                <option value="Cumpleaños" data-imagen="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ck0DkLwjDUnidOTsPpIyECmY0ViyjpsA5A&s">Cumpleaños</option>
+                                <option value="Aniversario" data-imagen="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ck0DkLwjDUnidOTsPpIyECmY0ViyjpsA5A&s">Aniversario</option>
+                                <option value="Reunión de Negocios" data-imagen="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIg4n9ZwTlyq1auZ1oF3qdnkgImIx5oiUFVA&s">Reunión de Negocios</option>
+                                <option value="Cena Romántica" data-imagen="https://media.istockphoto.com/id/1718783170/es/foto/primer-plano-de-dos-personas-tintineando-copas-de-vino-en-la-mesa-de-la-cena.jpg?s=612x612&w=0&k=20&c=hZrQASyabHhCvRXq_qPcOXJdwR8PfOAFPJTntzF0I7o=">Cena Romántica</option>
+                                <option value="Celebración Familiar" data-imagen="https://www.esmental.com/wp-content/uploads/2023/12/shutterstock_2198374269.jpg">Celebración Familiar</option>
                                 <option value="Evento Corporativo" data-imagen="https://picsum.photos/id/1071/150/150">Evento Corporativo</option>
-                                <option value="Despedida de Soltero/a" data-imagen="https://picsum.photos/id/1069/150/150">Despedida de Soltero/a</option>
-                                <option value="Graduación" data-imagen="https://picsum.photos/id/1056/150/150">Graduación</option>
+                                <option value="https://www.agenciabloody.com/wp-content/uploads/2023/11/que-es-un-evento-corporativo.jpg" data-imagen="https://cdn0.matrimonio.com.co/article-gallery-o/00000/3_2/960/jpg/articulos-a-fotos/amigos-familia-damas-gente/amigos-celebrando.jpeg">Despedida de Soltero/a</option>
+                                <option value="Graduación" data-imagen="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiMXoigXJQX8bLxE_zuGEujzI3eaAVmTcbSQ&s">Graduación</option>
                             </select>
                             <img id="vistaPreviaOcasion" src="" alt="Vista previa de la ocasión" class="img-fluid mt-2" onerror="this.style.display='none'">
                         </div>
@@ -377,14 +398,14 @@
         // Mapeo de ocasiones a imágenes (con URLs de respaldo de Picsum)
         const imagenesOcasion = {
             'Ninguna': '',
-            'Cumpleaños': 'https://picsum.photos/id/1005/40/40',
-            'Aniversario': 'https://picsum.photos/id/106/40/40',
-            'Reunión de Negocios': 'https://picsum.photos/id/1060/40/40',
-            'Cena Romántica': 'https://picsum.photos/id/96/40/40',
-            'Celebración Familiar': 'https://picsum.photos/id/1062/40/40',
-            'Evento Corporativo': 'https://picsum.photos/id/1071/40/40',
-            'Despedida de Soltero/a': 'https://picsum.photos/id/1069/40/40',
-            'Graduación': 'https://picsum.photos/id/1056/40/40'
+            'Cumpleaños': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ck0DkLwjDUnidOTsPpIyECmY0ViyjpsA5A&s',
+            'Aniversario': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ck0DkLwjDUnidOTsPpIyECmY0ViyjpsA5A&s',
+            'Reunión de Negocios': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIg4n9ZwTlyq1auZ1oF3qdnkgImIx5oiUFVA&s',
+            'Cena Romántica': 'https://media.istockphoto.com/id/1718783170/es/foto/primer-plano-de-dos-personas-tintineando-copas-de-vino-en-la-mesa-de-la-cena.jpg?s=612x612&w=0&k=20&c=hZrQASyabHhCvRXq_qPcOXJdwR8PfOAFPJTntzF0I7o=',
+            'Celebración Familiar': 'https://www.esmental.com/wp-content/uploads/2023/12/shutterstock_2198374269.jpg',
+            'Evento Corporativo': 'https://www.agenciabloody.com/wp-content/uploads/2023/11/que-es-un-evento-corporativo.jpg',
+            'Despedida de Soltero/a': 'https://cdn0.matrimonio.com.co/article-gallery-o/00000/3_2/960/jpg/articulos-a-fotos/amigos-familia-damas-gente/amigos-celebrando.jpeg',
+            'Graduación': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiMXoigXJQX8bLxE_zuGEujzI3eaAVmTcbSQ&s'
         };
 
         // Inicialización
@@ -617,10 +638,12 @@
             const ubicacion = document.getElementById('mesaUbicacion').value;
             const estado = document.getElementById('mesaEstado').value;
             
-            if (!nombre || !capacidad || !ubicacion) {
-                alert('Por favor, complete todos los campos obligatorios.');
-                return;
-            }
+if (!nombre || !capacidad || !ubicacion) {
+    const alerta = document.getElementById('alertaCampos');
+    alerta.classList.remove('d-none'); // Mostrar el mensaje
+    return;
+}
+
             
             if (mesaEditando) {
                 // Actualizar mesa existente
@@ -762,10 +785,11 @@
             const estado = document.getElementById('reservaEstado').value;
             
             // Validaciones
-            if (!nombre || !personas || !fecha || !hora || !mesaId) {
-                alert('Por favor, complete todos los campos obligatorios.');
-                return;
-            }
+if (!nombre || !personas || !fecha || !hora || !mesaId) {
+    $('#modalCampos').modal('show');
+    return;
+}
+
             
             if (personas <= 0) {
                 alert('El número de personas debe ser mayor que cero.');
