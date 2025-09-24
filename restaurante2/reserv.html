@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
     <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- jQuery y Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-
-                .base {
+        .base {
             margin: 2% auto;
             background-color: white;
             border: 1px solid #dee2e6;
@@ -90,7 +89,6 @@
             font-size: 0.75rem;
         }
         
-        /* Nuevos estilos para imágenes de ocasión */
         .imagen-ocasion {
             width: 40px;
             height: 40px;
@@ -126,7 +124,6 @@
             gap: 8px;
         }
         
-        /* Estilos para carga de imágenes */
         .imagen-cargando {
             filter: blur(5px);
             background-color: #f0f0f0;
@@ -150,30 +147,31 @@
         }
     </style>
 </head>
-<body >
+<body>
 
     <!-- Modal simple -->
-<div class="modal fade" id="modalCampos" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-body text-center">
-        <p>Complete todos los campos obligatorios.</p>
-        <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">OK</button>
-      </div>
+    <div class="modal fade" id="modalCampos" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p>Complete todos los campos obligatorios.</p>
+                    <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<div class="modal fade" id="modalCampos1" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-body text-center">
-        <p>¿Está seguro de eliminar esta mesa?</p>
-        <button type="button1" class="btn btn-warning btn-sm" data-dismiss="modal">OK</button>
-      </div>
+    <div class="modal fade" id="modalConfirmacion" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <p>¿Está seguro de eliminar esta mesa?</p>
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger btn-sm" id="confirmarEliminar">Eliminar</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
    
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
@@ -348,12 +346,17 @@
                                 <input type="time" class="form-control" id="reservaHora" min="08:00" max="20:00" required>
                             </div>
                         </div>
+                        <!-- NUEVO CAMPO PARA RANGO DE HORAS -->
+                        <div class="mb-3">
+                            <label for="reservaRangoHoras" class="form-label">Rango de protección (horas) *</label>
+                            <input type="number" class="form-control" id="reservaRangoHoras" min="0.5" max="3" step="0.5" value="1" required>
+                            <small class="form-text text-muted">Evita reservas conflictivas ± este tiempo (ej: 1.5 = 1 hora 30 min)</small>
+                        </div>
                         <div class="mb-3">
                             <label for="reservaMesa" class="form-label">Mesa *</label>
                             <select class="form-select" id="reservaMesa" required>
                                 <option value="">Seleccione una mesa</option>
                                 <!-- Las opciones de mesas disponibles se cargarán dinámicamente -->
-                                 
                             </select>
                         </div>
                         <div class="mb-3">
@@ -366,7 +369,7 @@
                                 <option value="Cena Romántica" data-imagen="https://media.istockphoto.com/id/1718783170/es/foto/primer-plano-de-dos-personas-tintineando-copas-de-vino-en-la-mesa-de-la-cena.jpg?s=612x612&w=0&k=20&c=hZrQASyabHhCvRXq_qPcOXJdwR8PfOAFPJTntzF0I7o=">Cena Romántica</option>
                                 <option value="Celebración Familiar" data-imagen="https://www.esmental.com/wp-content/uploads/2023/12/shutterstock_2198374269.jpg">Celebración Familiar</option>
                                 <option value="Evento Corporativo" data-imagen="https://picsum.photos/id/1071/150/150">Evento Corporativo</option>
-                                <option value="https://www.agenciabloody.com/wp-content/uploads/2023/11/que-es-un-evento-corporativo.jpg" data-imagen="https://cdn0.matrimonio.com.co/article-gallery-o/00000/3_2/960/jpg/articulos-a-fotos/amigos-familia-damas-gente/amigos-celebrando.jpeg">Despedida de Soltero/a</option>
+                                <option value="Despedida de Soltero/a" data-imagen="https://cdn0.matrimonio.com.co/article-gallery-o/00000/3_2/960/jpg/articulos-a-fotos/amigos-familia-damas-gente/amigos-celebrando.jpeg">Despedida de Soltero/a</option>
                                 <option value="Graduación" data-imagen="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiMXoigXJQX8bLxE_zuGEujzI3eaAVmTcbSQ&s">Graduación</option>
                             </select>
                             <img id="vistaPreviaOcasion" src="" alt="Vista previa de la ocasión" class="img-fluid mt-2" onerror="this.style.display='none'">
@@ -404,8 +407,9 @@
         let reservaEditando = null;
         let filtroFecha = '';
         let filtroEstado = '';
+        let mesaAEliminar = null;
 
-        // Mapeo de ocasiones a imágenes (con URLs de respaldo de Picsum)
+        // Mapeo de ocasiones a imágenes
         const imagenesOcasion = {
             'Ninguna': '',
             'Cumpleaños': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ck0DkLwjDUnidOTsPpIyECmY0ViyjpsA5A&s',
@@ -425,39 +429,59 @@
             cargarReservasTabla();
             establecerFechaMinima();
             
-            // Cambiar a la pestaña de reservas si hay un hash en la URL
+            // Configurar evento para confirmar eliminación
+            document.getElementById('confirmarEliminar').addEventListener('click', function() {
+                if (mesaAEliminar) {
+                    eliminarMesaConfirmada(mesaAEliminar);
+                    mesaAEliminar = null;
+                    $('#modalConfirmacion').modal('hide');
+                }
+            });
+            
             if (window.location.hash === '#reservas') {
                 const tab = new bootstrap.Tab(document.getElementById('reservas-tab'));
                 tab.show();
             }
         });
 
-        /*Actualizar vista previa de la ocasión
-     //   function actualizarVistaPreviaOcasion() {
-      //      const selectOcasion = document.getElementById('reservaOcasion');
-      //      const imagenPrevia = document.getElementById('vistaPreviaOcasion');
-      //      const opcionSeleccionada = selectOcasion.options[selectOcasion.selectedIndex];
+        // Función para verificar conflictos de horario
+        function hayConflictoDeHoras(horaExistente, horaNueva, rangoHoras) {
+            const rango = rangoHoras || 1;
+            
+            const [hE, mE] = horaExistente.split(':').map(Number);
+            const [hN, mN] = horaNueva.split(':').map(Number);
+            
+            const minutosExistente = hE * 60 + mE;
+            const minutosNueva = hN * 60 + mN;
+            
+            const minExistente = minutosExistente - (rango * 60);
+            const maxExistente = minutosExistente + (rango * 60);
+            
+            return minutosNueva >= minExistente && minutosNueva <= maxExistente;
+        }
+
+        function actualizarVistaPreviaOcasion() {
+            const selectOcasion = document.getElementById('reservaOcasion');
+            const imagenPrevia = document.getElementById('vistaPreviaOcasion');
+            const opcionSeleccionada = selectOcasion.options[selectOcasion.selectedIndex];
             const urlImagen = opcionSeleccionada.getAttribute('data-imagen');
             
             if (urlImagen) {
                 imagenPrevia.src = urlImagen;
                 imagenPrevia.style.display = 'block';
-                // Agregar manejo de error por si la imagen no carga
                 imagenPrevia.onerror = function() {
                     this.style.display = 'none';
                 };
             } else {
                 imagenPrevia.style.display = 'none';
             }
-        }*/
+        }
 
-        // Establecer fecha mínima para reservas (hoy)
         function establecerFechaMinima() {
             const hoy = new Date().toISOString().split('T')[0];
             document.getElementById('reservaFecha').min = hoy;
         }
 
-        // Inicializar datos en localStorage si no existen
         function inicializarDatos() {
             if (!localStorage.getItem('mesas')) {
                 const mesasIniciales = [
@@ -472,7 +496,6 @@
             }
 
             if (!localStorage.getItem('reservas')) {
-                // Crear algunas reservas de ejemplo con imágenes
                 const reservasIniciales = [
                     {
                         idReserva: 'reserva1',
@@ -483,7 +506,8 @@
                         ocasionEspecial: 'Cumpleaños',
                         notasAdicionales: 'Es el cumpleaños de mi hijo',
                         idMesaAsignada: 'mesa2',
-                        estado: 'Confirmada'
+                        estado: 'Confirmada',
+                        rangoHoras: 1
                     },
                     {
                         idReserva: 'reserva2',
@@ -494,7 +518,8 @@
                         ocasionEspecial: 'Cena Romántica',
                         notasAdicionales: 'Queremos una mesa tranquila',
                         idMesaAsignada: 'mesa1',
-                        estado: 'Pendiente'
+                        estado: 'Pendiente',
+                        rangoHoras: 1
                     }
                 ];
                 localStorage.setItem('reservas', JSON.stringify(reservasIniciales));
@@ -504,7 +529,6 @@
             reservas = JSON.parse(localStorage.getItem('reservas'));
         }
 
-        // Cargar mesas en el plano
         function cargarMesas() {
             const contenedorMesas = document.getElementById('plano-mesas');
             contenedorMesas.innerHTML = '';
@@ -540,7 +564,6 @@
             });
         }
 
-        // Cargar reservas en la tabla
         function cargarReservasTabla() {
             const tablaReservas = document.getElementById('tablaReservas').getElementsByTagName('tbody')[0];
             const sinReservas = document.getElementById('sin-reservas');
@@ -548,7 +571,6 @@
 
             let reservasFiltradas = reservas;
 
-            // Aplicar filtros si existen
             if (filtroFecha) {
                 reservasFiltradas = reservasFiltradas.filter(reserva => reserva.fechaReserva === filtroFecha);
             }
@@ -567,7 +589,6 @@
             reservasFiltradas.forEach(reserva => {
                 const mesa = mesas.find(m => m.id === reserva.idMesaAsignada) || { id: 'No asignada', ubicacion: 'N/A' };
                 
-                // Determinar clase CSS para el estado
                 let estadoClase = '';
                 switch(reserva.estado) {
                     case 'Pendiente': estadoClase = 'bg-warning'; break;
@@ -577,7 +598,6 @@
                     case 'No Show': estadoClase = 'bg-secondary'; break;
                 }
                 
-                // Obtener imagen para la ocasión con manejo de errores
                 const imagenOcasion = reserva.ocasionEspecial && reserva.ocasionEspecial !== 'Ninguna' 
                     ? `<img src="${imagenesOcasion[reserva.ocasionEspecial]}" alt="${reserva.ocasionEspecial}" 
                          class="imagen-ocasion" onerror="this.style.display='none'">` 
@@ -612,7 +632,6 @@
             });
         }
 
-        // Mostrar modal para nueva mesa
         function mostrarModalMesa() {
             mesaEditando = null;
             document.getElementById('modalMesaTitulo').textContent = 'Nueva Mesa';
@@ -623,7 +642,6 @@
             modal.show();
         }
 
-        // Editar una mesa existente
         function editarMesa(id) {
             const mesa = mesas.find(m => m.id === id);
             if (!mesa) return;
@@ -640,7 +658,6 @@
             modal.show();
         }
 
-        // Guardar mesa (crear o actualizar)
         function guardarMesa() {
             const id = document.getElementById('mesaId').value;
             const nombre = document.getElementById('mesaNombre').value;
@@ -648,15 +665,12 @@
             const ubicacion = document.getElementById('mesaUbicacion').value;
             const estado = document.getElementById('mesaEstado').value;
             
-if (!nombre || !capacidad || !ubicacion) {
-    const alerta = document.getElementById('alertaCampos');
-    alerta.classList.remove('d-none'); // Mostrar el mensaje
-    return;
-}
-
+            if (!nombre || !capacidad || !ubicacion) {
+                $('#modalCampos').modal('show');
+                return;
+            }
             
             if (mesaEditando) {
-                // Actualizar mesa existente
                 const index = mesas.findIndex(m => m.id === mesaEditando.id);
                 if (index !== -1) {
                     mesas[index] = {
@@ -667,8 +681,6 @@ if (!nombre || !capacidad || !ubicacion) {
                     };
                 }
             } else {
-                // Crear nueva mesa
-                // Verificar si ya existe una mesa con ese ID
                 if (mesas.some(m => m.id === nombre)) {
                     alert('Ya existe una mesa con ese identificador.');
                     return;
@@ -682,19 +694,17 @@ if (!nombre || !capacidad || !ubicacion) {
                 });
             }
             
-            // Guardar en localStorage
             localStorage.setItem('mesas', JSON.stringify(mesas));
-            
-            // Cerrar modal y actualizar vista
             bootstrap.Modal.getInstance(document.getElementById('modalMesa')).hide();
             cargarMesas();
         }
 
-        // Eliminar una mesa
         function eliminarMesa(id) {
-            $('#modalCampos1').modal('show');return;
-            
-            // Verificar si la mesa tiene reservas activas
+            $('#modalConfirmacion').modal('show');
+            mesaAEliminar = id;
+        }
+
+        function eliminarMesaConfirmada(id) {
             const tieneReservas = reservas.some(r => r.idMesaAsignada === id && 
                 (r.estado === 'Pendiente' || r.estado === 'Confirmada'));
             
@@ -703,15 +713,11 @@ if (!nombre || !capacidad || !ubicacion) {
                 return;
             }
             
-            // Eliminar la mesa
             mesas = mesas.filter(m => m.id !== id);
             localStorage.setItem('mesas', JSON.stringify(mesas));
-            
-            // Actualizar vista
             cargarMesas();
         }
 
-        // Iniciar reserva para una mesa específica
         function reservarMesa(id) {
             const mesa = mesas.find(m => m.id === id);
             if (!mesa || mesa.estado !== 'disponible') {
@@ -723,16 +729,15 @@ if (!nombre || !capacidad || !ubicacion) {
             document.getElementById('reservaMesa').value = id;
         }
 
-        // Mostrar modal para nueva reserva
         function mostrarModalReserva() {
             reservaEditando = null;
             document.getElementById('modalReservaTitulo').textContent = 'Nueva Reserva';
             document.getElementById('formReserva').reset();
             document.getElementById('reservaId').value = '';
             document.getElementById('reservaEstado').value = 'Pendiente';
+            document.getElementById('reservaRangoHoras').value = '1';
             document.getElementById('vistaPreviaOcasion').style.display = 'none';
             
-            // Cargar mesas disponibles en el selector
             const selectorMesas = document.getElementById('reservaMesa');
             selectorMesas.innerHTML = '<option value="">Seleccione una mesa</option>';
             
@@ -747,7 +752,6 @@ if (!nombre || !capacidad || !ubicacion) {
             modal.show();
         }
 
-        // Editar una reserva existente
         function editarReserva(id) {
             const reserva = reservas.find(r => r.idReserva === id);
             if (!reserva) return;
@@ -759,14 +763,13 @@ if (!nombre || !capacidad || !ubicacion) {
             document.getElementById('reservaPersonas').value = reserva.numeroPersonas;
             document.getElementById('reservaFecha').value = reserva.fechaReserva;
             document.getElementById('reservaHora').value = reserva.horaReserva;
+            document.getElementById('reservaRangoHoras').value = reserva.rangoHoras || 1;
             document.getElementById('reservaOcasion').value = reserva.ocasionEspecial || 'Ninguna';
             document.getElementById('reservaNotas').value = reserva.notasAdicionales || '';
             document.getElementById('reservaEstado').value = reserva.estado;
             
-            // Actualizar vista previa de la ocasión
             actualizarVistaPreviaOcasion();
             
-            // Cargar mesas en el selector
             const selectorMesas = document.getElementById('reservaMesa');
             selectorMesas.innerHTML = '<option value="">Seleccione una mesa</option>';
             
@@ -782,24 +785,22 @@ if (!nombre || !capacidad || !ubicacion) {
             modal.show();
         }
 
-        // Guardar reserva (crear o actualizar)
         function guardarReserva() {
             const id = document.getElementById('reservaId').value;
             const nombre = document.getElementById('reservaNombre').value;
             const personas = parseInt(document.getElementById('reservaPersonas').value);
             const fecha = document.getElementById('reservaFecha').value;
             const hora = document.getElementById('reservaHora').value;
+            const rangoHoras = parseFloat(document.getElementById('reservaRangoHoras').value) || 1;
             const mesaId = document.getElementById('reservaMesa').value;
             const ocasion = document.getElementById('reservaOcasion').value;
             const notas = document.getElementById('reservaNotas').value;
             const estado = document.getElementById('reservaEstado').value;
             
-            // Validaciones
-if (!nombre || !personas || !fecha || !hora || !mesaId) {
-    $('#modalCampos').modal('show');
-    return;
-}
-
+            if (!nombre || !personas || !fecha || !hora || !mesaId) {
+                $('#modalCampos').modal('show');
+                return;
+            }
             
             if (personas <= 0) {
                 alert('El número de personas debe ser mayor que cero.');
@@ -821,29 +822,27 @@ if (!nombre || !personas || !fecha || !hora || !mesaId) {
                 return;
             }
             
-            // Verificar si la mesa está disponible
             const mesa = mesas.find(m => m.id === mesaId);
             if (!mesa || mesa.estado !== 'disponible') {
                 alert('La mesa seleccionada no está disponible.');
                 return;
             }
             
-            // Verificar si la mesa ya tiene una reserva en la misma fecha y hora
+            // VERIFICACIÓN DE CONFLICTOS CON RANGO DE HORAS
             const reservaExistente = reservas.find(r => 
                 r.idMesaAsignada === mesaId && 
                 r.fechaReserva === fecha && 
-                r.horaReserva === hora &&
-                r.idReserva !== id && // Excluir la reserva actual si estamos editando
-                (r.estado === 'Pendiente' || r.estado === 'Confirmada')
+                r.idReserva !== id &&
+                (r.estado === 'Pendiente' || r.estado === 'Confirmada') &&
+                hayConflictoDeHoras(r.horaReserva, hora, r.rangoHoras || 1)
             );
-            
+
             if (reservaExistente) {
-                alert('La mesa ya tiene una reserva activa para esa fecha y hora.');
+                alert(`La mesa ya tiene una reserva activa para esa fecha que conflige con el horario. Reserva existente: ${reservaExistente.horaReserva} (±${reservaExistente.rangoHoras || 1} horas)`);
                 return;
             }
             
             if (reservaEditando) {
-                // Actualizar reserva existente
                 const index = reservas.findIndex(r => r.idReserva === reservaEditando.idReserva);
                 if (index !== -1) {
                     reservas[index] = {
@@ -855,11 +854,11 @@ if (!nombre || !personas || !fecha || !hora || !mesaId) {
                         ocasionEspecial: ocasion === 'Ninguna' ? '' : ocasion,
                         notasAdicionales: notas,
                         idMesaAsignada: mesaId,
-                        estado: estado
+                        estado: estado,
+                        rangoHoras: rangoHoras
                     };
                 }
             } else {
-                // Crear nueva reserva
                 const nuevoId = 'reserva' + (reservas.length + 1);
                 reservas.push({
                     idReserva: nuevoId,
@@ -870,10 +869,10 @@ if (!nombre || !personas || !fecha || !hora || !mesaId) {
                     ocasionEspecial: ocasion === 'Ninguna' ? '' : ocasion,
                     notasAdicionales: notas,
                     idMesaAsignada: mesaId,
-                    estado: estado
+                    estado: estado,
+                    rangoHoras: rangoHoras
                 });
                 
-                // Cambiar el estado de la mesa a ocupada
                 const mesaIndex = mesas.findIndex(m => m.id === mesaId);
                 if (mesaIndex !== -1) {
                     mesas[mesaIndex].estado = 'ocupada';
@@ -881,48 +880,37 @@ if (!nombre || !personas || !fecha || !hora || !mesaId) {
                 }
             }
             
-            // Guardar en localStorage
             localStorage.setItem('reservas', JSON.stringify(reservas));
-            
-            // Cerrar modal y actualizar vista
             bootstrap.Modal.getInstance(document.getElementById('modalReserva')).hide();
             cargarMesas();
             cargarReservasTabla();
         }
 
-        // Pagar una reserva (cambiar estado a Finalizada y liberar mesa)
         function pagarReserva(id) {
             const reserva = reservas.find(r => r.idReserva === id);
             if (!reserva) return;
             
             if (!confirm('¿Marcar esta reserva como pagada y finalizada?')) return;
             
-            // Cambiar estado de la reserva
             reserva.estado = 'Finalizada';
             
-            // Liberar la mesa
             const mesaIndex = mesas.findIndex(m => m.id === reserva.idMesaAsignada);
             if (mesaIndex !== -1) {
                 mesas[mesaIndex].estado = 'disponible';
                 localStorage.setItem('mesas', JSON.stringify(mesas));
             }
             
-            // Guardar cambios
             localStorage.setItem('reservas', JSON.stringify(reservas));
-            
-            // Actualizar vista
             cargarMesas();
             cargarReservasTabla();
         }
 
-        // Eliminar una reserva
         function eliminarReserva(id) {
             if (!confirm('¿Está seguro de que desea eliminar esta reserva?')) return;
             
             const reserva = reservas.find(r => r.idReserva === id);
             if (!reserva) return;
             
-            // Si la reserva está activa, liberar la mesa
             if (reserva.estado === 'Pendiente' || reserva.estado === 'Confirmada') {
                 const mesaIndex = mesas.findIndex(m => m.id === reserva.idMesaAsignada);
                 if (mesaIndex !== -1) {
@@ -931,16 +919,12 @@ if (!nombre || !personas || !fecha || !hora || !mesaId) {
                 }
             }
             
-            // Eliminar la reserva
             reservas = reservas.filter(r => r.idReserva !== id);
             localStorage.setItem('reservas', JSON.stringify(reservas));
-            
-            // Actualizar vista
             cargarMesas();
             cargarReservasTabla();
         }
 
-        // Aplicar filtros a las reservas
         function aplicarFiltros() {
             filtroFecha = document.getElementById('filtroFecha').value;
             filtroEstado = document.getElementById('filtroEstado').value;
@@ -950,4 +934,3 @@ if (!nombre || !personas || !fecha || !hora || !mesaId) {
 
 </body>
 </html>
-
