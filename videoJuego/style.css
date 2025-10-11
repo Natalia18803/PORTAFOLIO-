@@ -1,9 +1,9 @@
 * {
-  margin:auto
+  margin: auto
 }
 
 .bodyIndex {
-    background: url(./Marketing_video_Pippit_20251006025734.mp4) center/cover no-repeat;
+  background: url(./Marketing_video_Pippit_20251006025734.mp4) center/cover no-repeat;
 }
 
 
@@ -11,7 +11,8 @@
 .bloqueJuego {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinea todo al borde izquierdo */
+  align-items: flex-start;
+  /* Alinea todo al borde izquierdo */
   margin: 2rem;
 }
 
@@ -27,7 +28,7 @@
   color: white;
   font-size: 10rem;
   margin: 0;
-  font-family:  sans-serif;
+  font-family: sans-serif;
 }
 
 #botonArmamento {
@@ -43,47 +44,54 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* 👈 muy importante para que la imagen se “recorte” redonda */
+  overflow: hidden;
+  /* 👈 muy importante para que la imagen se “recorte” redonda */
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
-              inset 0 2px 6px rgba(255, 255, 255, 0.1);
+    inset 0 2px 6px rgba(255, 255, 255, 0.1);
   transition: transform 0.15s ease, box-shadow 0.3s ease;
-  
+
 }
 
-#botonArmamento img, #botonVehiculo img {
+#botonArmamento img,
+#botonVehiculo img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 👈 rellena sin deformar */
+  object-fit: cover;
+  /* 👈 rellena sin deformar */
   border-radius: 50%;
 }
 
 #botonArmamento:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7),
-              0 0 15px #b5ae66;
+    0 0 15px #b5ae66;
 }
 
 
 #botonVehiculo {
   position: absolute;
-top: 190px;        /* 50px + 120px (altura del botón) + 20px de separación */
+  top: 190px;
+  /* 50px + 120px (altura del botón) + 20px de separación */
   right: 50px;
   z-index: 10;
   width: 120px;
   height: 120px;
   background: radial-gradient(circle at center, #4b5320 0%, #2e3520 100%);
-  color: #f5f5dc; /* beige militar */
-  border: 4px solid #b5ae66; /* borde dorado militar */
+  color: #f5f5dc;
+  /* beige militar */
+  border: 4px solid #b5ae66;
+  /* borde dorado militar */
   font-size: 24px;
   font-weight: bold;
   border-radius: 50%;
   display: flex;
   align-items: center;
-  overflow: hidden; /* 👈 muy importante para que la imagen se “recorte” redonda */
+  overflow: hidden;
+  /* 👈 muy importante para que la imagen se “recorte” redonda */
   justify-content: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
-              inset 0 2px 6px rgba(255, 255, 255, 0.1);
+    inset 0 2px 6px rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.3s ease;
 }
@@ -91,7 +99,7 @@ top: 190px;        /* 50px + 120px (altura del botón) + 20px de separación */
 #botonVehiculo:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7),
-              0 0 15px #b5ae66;
+    0 0 15px #b5ae66;
 }
 
 #botonVehiculo:active {
@@ -106,8 +114,10 @@ top: 190px;        /* 50px + 120px (altura del botón) + 20px de separación */
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* mantiene proporciones y llena la pantalla */
-  z-index: -1;       /* se queda detrás del contenido */
+  object-fit: cover;
+  /* mantiene proporciones y llena la pantalla */
+  z-index: -1;
+  /* se queda detrás del contenido */
 }
 
 
@@ -116,39 +126,65 @@ top: 190px;        /* 50px + 120px (altura del botón) + 20px de separación */
 
 
 
-/**//**//**//**//**//**//**//**//*/*//*ESTILOS ARSENAL//**//**//*/*/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/*/*/
+/*ESTILOS ARSENAL//**/
+/**/
+/*/*/
 
 
 .bodyArsenal {
-   background: url(./fondoArsenal.webp) center/cover no-repeat ;
+  background: url(./fondoArsenal.webp) center/cover no-repeat;
+  background-color: #4b5320;
 }
 
 .contenedorTituloArsenal {
-   text-align: center;
-   font-family:  sans-serif;
+  text-align: center;
+  font-family: sans-serif;
 }
 
 
 .contenedorPadreArmas {
-    display: flex;              /* Alinea horizontalmente */
-    flex-wrap: nowrap;          /* No permite que salten de línea */
-    overflow-x: auto;           /* Habilita el scroll horizontal */
-    gap: 1rem;                  /* Espacio entre elementos */
-    padding: 1rem;              /* Espacio interior opcional */
-    scroll-behavior: smooth;    /* Deslizamiento suave */
-    margin-top: 200px;        /* Para dejar espacio al header fijo */
+  display: flex;
+  /* Alinea horizontalmente */
+  flex-wrap: nowrap;
+  /* No permite que salten de línea */
+  overflow-x: auto;
+  /* Habilita el scroll horizontal */
+  gap: 1rem;
+  /* Espacio entre elementos */
+  padding: 1rem;
+  /* Espacio interior opcional */
+  scroll-behavior: smooth;
+  /* Deslizamiento suave */
+  margin-top: 200px;
+  /* Para dejar espacio al header fijo */
 }
 
-.contenedor1, .contenedor2, .contenedor3, .contenedor4, .contenedor5, .contenedor6 {
+.contenedor1,
+.contenedor2,
+.contenedor3,
+.contenedor4,
+.contenedor5,
+.contenedor6 {
   border: 4px solid rgb(61, 68, 23);
   border-radius: 10px;
   padding: 1rem;
-    transform: scale(1.05);
+  transform: scale(1.05);
   transition: transform 0.3s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    font-family:  sans-serif;
-    color: rgb(218, 218, 218);
-      transition: transform 0.15s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: sans-serif;
+  color: rgb(218, 218, 218);
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+  background-color: rgb(82, 90, 10);
+  gap: 400px;
 }
 
 .headerArsenal {
@@ -161,9 +197,10 @@ top: 190px;        /* 50px + 120px (altura del botón) + 20px de separación */
   width: 100%;
   top: 0;
   text-align: center;
- color: rgb(197, 196, 196);
-  font-family:  sans-serif;
+  color: rgb(197, 196, 196);
+  font-family: sans-serif;
   border-bottom: 2px solid rgb(127, 139, 57);
+  font-size: 40px;
 
 }
 
@@ -177,8 +214,44 @@ top: 190px;        /* 50px + 120px (altura del botón) + 20px de separación */
   width: 100%;
   bottom: 0;
   text-align: center;
- color: rgb(197, 196, 196);
-  font-family:  sans-serif;
+  color: rgb(197, 196, 196);
+  font-family: sans-serif;
   border-top: 2px solid rgb(127, 139, 57);
 }
 
+model-viewer {
+  width: 20vw;
+  height: 20vh;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
+    inset 0 2px 6px rgba(56, 49, 49, 0.1);
+
+}
+
+
+.volver{
+  
+}
+
+
+
+
+
+
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/*/*/
+/*ESTILOS VEHICULOS//**/
+/**/
+/*/*/
+
+
+.bodyVehiculos {
+  background: url(./fondoArsenal.webp) center/cover no-repeat;
+  background-color: #4b5320;
+}
