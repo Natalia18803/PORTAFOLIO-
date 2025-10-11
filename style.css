@@ -1,257 +1,94 @@
 * {
-  margin: auto
-}
-
-.bodyIndex {
-  background: url(./Marketing_video_Pippit_20251006025734.mp4) center/cover no-repeat;
-}
-
-
-
-.bloqueJuego {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* Alinea todo al borde izquierdo */
-  margin: 2rem;
-}
-
-/* Título */
-.tituloPadre {
-  perspective: 300px;
-}
-
-.tituloHijo {
-  display: inline-block;
-  transform: rotateY(25deg);
-  transform-origin: left center;
-  color: white;
-  font-size: 10rem;
   margin: 0;
-  font-family: sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#botonArmamento {
-  position: absolute;
-  top: 50px;
-  right: 50px;
-  z-index: 10;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #4b5320 0%, #2e3520 100%);
-  border: 4px solid #b5ae66;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  /* 👈 muy importante para que la imagen se “recorte” redonda */
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
-    inset 0 2px 6px rgba(255, 255, 255, 0.1);
-  transition: transform 0.15s ease, box-shadow 0.3s ease;
-
+body {
+  background: url("./FondoPortafolio.avif") center/cover no-repeat;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #3a2c1a;
+  margin: 5% clamp(5%, 12%, 14%);
+  line-height: 1.7;
 }
 
-#botonArmamento img,
-#botonVehiculo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* 👈 rellena sin deformar */
-  border-radius: 50%;
+/* Contenedores principales */
+.contenedorSuperior,
+.contenedorHijo {
+  background-color: #faf8f0;
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 32px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+  border: 1px solid #e0d6c3;
+  transition: box-shadow 0.3s ease;
 }
 
-#botonArmamento:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7),
-    0 0 15px #b5ae66;
+.contenedorHijo {
+  background-color: #f5ecd8;
 }
 
-
-#botonVehiculo {
-  position: absolute;
-  top: 190px;
-  /* 50px + 120px (altura del botón) + 20px de separación */
-  right: 50px;
-  z-index: 10;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle at center, #4b5320 0%, #2e3520 100%);
-  color: #f5f5dc;
-  /* beige militar */
-  border: 4px solid #b5ae66;
-  /* borde dorado militar */
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  /* 👈 muy importante para que la imagen se “recorte” redonda */
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
-    inset 0 2px 6px rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.3s ease;
+/* Sección de páginas */
+.paginas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
 }
 
-#botonVehiculo:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7),
-    0 0 15px #b5ae66;
+.pagina1, .pagina2, .pagina3, .pagina4, .pagina5, .pagina6 {
+  background-color: #fffdf6;
+  border-radius: 14px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid #d4a373;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#botonVehiculo:active {
-  transform: scale(0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8) inset;
+.pagina1:hover, .pagina2:hover, .pagina3:hover, .pagina4:hover, .pagina5:hover, .pagina6:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* 🎥 Video de fondo a pantalla completa */
-#videoFondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* mantiene proporciones y llena la pantalla */
-  z-index: -1;
-  /* se queda detrás del contenido */
-}
-
-
-
-
-
-
-
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/*/*/
-/*ESTILOS ARSENAL//**/
-/**/
-/*/*/
-
-
-.bodyArsenal {
-  background: url(./fondoArsenal.webp) center/cover no-repeat;
-  background-color: #4b5320;
-}
-
-.contenedorTituloArsenal {
+.paginas h2 {
   text-align: center;
-  font-family: sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: #5c3d1a;
+  margin-bottom: 1rem;
 }
 
-
-.contenedorPadreArmas {
-  display: flex;
-  /* Alinea horizontalmente */
-  flex-wrap: nowrap;
-  /* No permite que salten de línea */
-  overflow-x: auto;
-  /* Habilita el scroll horizontal */
-  gap: 1rem;
-  /* Espacio entre elementos */
-  padding: 1rem;
-  /* Espacio interior opcional */
-  scroll-behavior: smooth;
-  /* Deslizamiento suave */
-  margin-top: 200px;
-  /* Para dejar espacio al header fijo */
+/* Botones */
+#botton1, #botton2, #botton3, #botton4, #botton5, #botton6 {
+  background-color: #f5ecd8;
+  color: #7a4e1d;
+  border: 1px solid #b88b4a;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.contenedor1,
-.contenedor2,
-.contenedor3,
-.contenedor4,
-.contenedor5,
-.contenedor6 {
-  border: 4px solid rgb(61, 68, 23);
-  border-radius: 10px;
-  padding: 1rem;
+#botton1:hover, #botton2:hover, #botton3:hover, #botton4:hover, #botton5:hover, #botton6:hover {
+  background-color: #e6d2b3;
   transform: scale(1.05);
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  font-family: sans-serif;
-  color: rgb(218, 218, 218);
-  transition: transform 0.15s ease, box-shadow 0.3s ease;
-  background-color: rgb(82, 90, 10);
-  gap: 400px;
 }
 
-.headerArsenal {
-  background-color: rgb(66, 73, 48);
-  height: 11%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  text-align: center;
-  color: rgb(197, 196, 196);
-  font-family: sans-serif;
-  border-bottom: 2px solid rgb(127, 139, 57);
-  font-size: 40px;
+/* Responsive ajustes */
+@media (max-width: 600px) {
+  body {
+    margin: 8% 5%;
+  }
 
-}
+  .contenedorSuperior,
+  .contenedorHijo {
+    padding: 1.2rem;
+  }
 
-.footerArsenal {
-  background-color: rgb(66, 73, 48);
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
-  color: rgb(197, 196, 196);
-  font-family: sans-serif;
-  border-top: 2px solid rgb(127, 139, 57);
-}
-
-model-viewer {
-  width: 20vw;
-  height: 20vh;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
-    inset 0 2px 6px rgba(56, 49, 49, 0.1);
-
-}
-
-
-.volver{
-  
-}
-
-
-
-
-
-
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/*/*/
-/*ESTILOS VEHICULOS//**/
-/**/
-/*/*/
-
-
-.bodyVehiculos {
-  background: url(./fondoArsenal.webp) center/cover no-repeat;
-  background-color: #4b5320;
+  .paginas {
+    padding: 1rem;
+    gap: 2rem;
+  }
 }
